@@ -1,0 +1,175 @@
+\documentclass[a5paper,10pt,openany]{book}
+
+\usepackage[top=2cm,bottom=2cm,bindingoffset=0cm]{geometry}
+
+\usepackage{footnote}
+
+\usepackage{mathtext}
+\usepackage{makeidx}
+
+\usepackage{longtable}
+\usepackage[tc]{titlepic}
+
+\usepackage{fontspec}
+\usepackage[protrusion=true,expansion,tracking=true]{microtype}
+
+\usepackage[toc,titletoc]{appendix}
+\renewcommand\appendixtocname{Приложения}
+\renewcommand\appendixpagename{Приложения}
+
+\usepackage{xltxtra}
+
+\usepackage{polyglossia}
+\setmainlanguage{russian}
+\setotherlanguage{ukrainian}
+\setotherlanguage{english}
+\setotherlanguage{greek}
+\setotherlanguage{latin}
+
+\setmainfont[BoldFont={DejaVuSerif-Bold.ttf},
+ItalicFont={DejaVuSerif-Italic.ttf},
+ BoldItalicFont={DejaVuSerif-BoldItalic.ttf}]{DejaVuSerif.ttf}
+
+\setromanfont[BoldFont={DejaVuSerif-Bold.ttf},
+ItalicFont={DejaVuSerif-Italic.ttf},
+ BoldItalicFont={DejaVuSerif-BoldItalic.ttf}]{DejaVuSerif.ttf}
+
+\setsansfont[BoldFont={DejaVuSans-Bold.ttf},
+ItalicFont={DejaVuSans-Oblique.ttf},
+ BoldItalicFont={DejaVuSans-Oblique.ttf}]
+{DejaVuSans.ttf}
+
+\setmonofont[BoldFont={DejaVuSansMono-Bold.ttf},
+ItalicFont={DejaVuSansMono-Oblique.ttf},
+ BoldItalicFont={DejaVuSansMono-BoldOblique.ttf}]
+{DejaVuSansMono.ttf}
+
+
+%\setromanfont{DejaVu Serif}
+%\setsansfont{DejaVu Sans}
+%\setmonofont{DejaVu Sans Mono}
+
+
+%\usepackage{showframe}
+
+\usepackage{indentfirst} 
+
+\usepackage{verse}
+
+\usepackage{graphicx}
+
+\usepackage[pdfpagelabels,unicode,plainpages=false]{hyperref}
+
+\hypersetup{pdftitle=Киевский кирпич. Петр Семилетов}
+
+\usepackage{bookmark} 
+\usepackage{relsize}
+
+\usepackage{tocloft,calc}
+\usepackage[nottoc,numbib]{tocbibind}
+
+\usepackage{multicol}
+
+\renewcommand{\cftchappresnum}{Глава }
+\AtBeginDocument{\addtolength\cftchapnumwidth{\widthof{\bfseries Глава XX}}}
+
+\frenchspacing
+\righthyphenmin=2
+
+\makeatletter
+\@addtoreset{chapter}{part}
+\makeatother  
+
+\newcommand\myimgprefix{s-}
+
+\usepackage[svgnames]{xcolor} % Required to specify font color
+
+
+\title{Киевский кирпич \\ \textsmaller[2]{четвертая редакция}}
+\author{Петр Семилетов}
+\date{15/05/2021}
+
+\newcommand*{\plogo}{\fbox{$\mathcal{PL}$}} % Generic publisher logo
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\newcommand*{\titleAT}{\begingroup % Create the command for including the title page in the document
+\newlength{\drop} % Command for generating a specific amount of whitespace
+\drop=0.1\textheight % Define the command as 10% of the total text height
+\centering
+\rule{\textwidth}{1pt}\par % Thick horizontal line
+\vspace{2pt}\vspace{-\baselineskip} % Whitespace between lines
+\rule{\textwidth}{0.4pt}\par % Thin horizontal line
+
+\vspace{\drop} % Whitespace between the top lines and title
+\centering % Center all text
+\textcolor{Red}{ % Red font color
+{\Huge КИЕВСКИЙ КИРПИЧ}\\[0.5\baselineskip] % Title line 1
+%{\Large}\mbox{}\\[0.75\baselineskip] % Title line 2
+%{\Huge четвертая редакция}} % Title line 3
+}
+
+\vspace{0.25\drop} % Whitespace between the title and short horizontal line
+\rule{0.3\textwidth}{0.4pt}\par % Short horizontal line under the title
+
+\mbox{ }\\
+шестая редакция\\
+\mbox{ }\\
+\includegraphics[width=0.50\textwidth]{pix/obl02.jpg}
+
+\vspace{\drop} % Whitespace between the thin horizontal line and the author name
+
+{\Large \textsc{Петр Семилетов}}\par % Author name
+
+\vfill % Whitespace between the author name and publisher text
+%{\large \textcolor{Red}{\plogo}}\\[0.5\baselineskip] % Publisher logo
+{\large \textsc{Самиздат 2021}}\par % Publisher
+
+\vspace*{\drop} % Whitespace under the publisher text
+
+\rule{\textwidth}{0.4pt}\par % Thin horizontal line
+\vspace{2pt}\vspace{-\baselineskip} % Whitespace between lines
+\rule{\textwidth}{1pt}\par % Thick horizontal line
+
+\endgroup}
+
+
+\begin{document}
+
+%\maketitle 
+
+\pagestyle{empty}
+
+\titleAT
+
+\newpage
+
+\pagestyle{plain}
+
+\tableofcontents
+
+\mainmatter
+
+\input{pre.tex}
+
+\input{kleyma.tex}
+\input{proizvod.tex}
+\input{karty.tex}
+\input{kartinki.tex}
+
+\backmatter
+
+\part*{Приложения}
+\addcontentsline{toc}{part}{Приложения}
+
+\input{glina.tex}
+\input{kievl254.tex}
+\input{price.tex}
+
+\begin{thebibliography}{999}
+\input{bibitems}
+\end{thebibliography}
+
+\end{document} 
